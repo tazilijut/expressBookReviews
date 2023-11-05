@@ -72,7 +72,7 @@ regd_users.delete("/auth/review/:isbn", (req, res) => {
   if (reviewer) {
 	  delete books[isbn]["reviews"][reviewer]
   }
-  res.send(`Review for the book with the isbn ${isbn} by the user ${reviewer} deleted`);//This line is to be replaced with actual return value
+  res.send(`Review for the book with the isbn ${isbn} by the user ${reviewer} deleted/`);//This line is to be replaced with actual return value
 });
 
 module.exports.authenticated = regd_users;

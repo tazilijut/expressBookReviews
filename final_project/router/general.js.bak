@@ -44,9 +44,8 @@ public_users.get('/',function (req, res) {
 // Get book details based on ISBN
 public_users.get('/isbn/:isbn',function (req, res) {
   //Write your code here
-  
+  const isbn = req.params.isbn;
   const get_isbn = new Promise((resolve, reject) => {
-      const isbn = req.params.isbn;
 	  resolve(res.send(books[isbn]))
   })
   get_isbn.then(() => console.log("Promise for Task 11 resolved"));
@@ -55,10 +54,10 @@ public_users.get('/isbn/:isbn',function (req, res) {
 // Get book details based on author
 public_users.get('/author/:author',function (req, res) {
   //Write your code here
+  const author = req.params.author;
+  const filteredAuthor = booksAsArray.filter((book) => book.author === author);
   const get_author = new Promise((resolve, reject) => {
-      const author = req.params.author;
-      const filteredAuthor = booksAsArray.filter((book) => book.author === author);
-      resolve(res.send(filteredAuthor));
+	  resolve(res.send(filteredAuthor));
   })
   get_author.then(() => console.log("Promise for Task 12 resolved"));
 });
@@ -66,10 +65,10 @@ public_users.get('/author/:author',function (req, res) {
 // Get all books based on title
 public_users.get('/title/:title',function (req, res) {
   //Write your code here
+  const title = req.params.title;
+  const filteredTitle = booksAsArray.filter((book) => book.title === title);
   const get_title = new Promise((resolve, reject) => {
-      const title = req.params.title;
-      const filteredTitle = booksAsArray.filter((book) => book.title === title);
-      resolve(res.send(filteredTitle));
+	  resolve(res.send(filteredTitle));
   })
   get_title.then(() => console.log("Promise for Task 13 resolved"));
 
